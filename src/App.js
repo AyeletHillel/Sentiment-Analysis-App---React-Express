@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react'
+import Sentiment from 'sentiment'
+import './App.css'
 
-function App() {
+const sentiment = new Sentiment()
+
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      sentimentScore: null,
+      generalSentiment: null
+    }
+    this.findSentiment = this.findSentiment.bind(this)
+    
+  }
+
+  findSentiment(event) {
+    const result = sentiment.analyze(event.target.value)
+    this.setState({
+      sentimentScore: result.score
+    })
+
+    if (result.score < 0) {
+      this.setState({
+        generalSentiment: "Negative"
+      })
+    } else if (result.score > 0) {
+      this.setState({
+        generalSentiment: "Positive"
+      })
+    } else {
+      this.setState({
+        generalSentiment: "Nuetral"
+      })
+    }
+    console.log(result)
+  }
+
+  render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h2>Topic Modeling App</h2>
+      <p>Enter text for real time analysis</p>
+      <textarea onChange={this.findSentiment}/>
+      <p>Sentiment Score: {this.state.sentimentScore}</p>
+      <p>General Sentiment: {this.state.generalSentiment}</p>
     </div>
   );
-}
+}}
 
 export default App;
