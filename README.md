@@ -2,17 +2,17 @@
 ## Topic Modeling App
 
 ### Overview
-NLP Lab makes state-of-the-art topic modeling methods accessible to non-technical people. This full CRUD app allows users to upload a text document and receive a topic analysis report generated with the help of BERTopic.
-BERTopic is a topic modeling technique that leverages BERT embeddings and c-TF-IDF to create dense clusters allowing for easily interpretable topics whilst keeping important words in the topic descriptions. A user can create a new report, update a report by adjusting the input or re-running the model, and delete a report. 
+NLP Lab makes state-of-the-art sentiment analysis methods accessible to non-technical people. This full CRUD app allows users to upload a text document and receive a topic analysis report generated with the help of Sentiment.
+Sentiment is a Node.js module that uses the AFINN-165 wordlist and Emoji Sentiment Ranking to perform sentiment analysis on arbitrary blocks of input text. A user can create a new report, update a report by adjusting the input or re-running the model, and delete a report. 
 
 ### Tech Stack
 
 | Component  | Tech Used |
 |------------|-----------|
-| Backend    | Django    |
+| Backend    | Express   |
 | Frontend   | React     |
 | Database   | MongoDB   |
-| NLP        | [BERTopic](https://maartengr.github.io/BERTopic/api/bertopic.html)  |
+| NLP        | [Sentiment](https://www.npmjs.com/package/sentiment)  |
 | Deployment | Render    |
 | Styling    | Tailwind  |
 
@@ -20,30 +20,30 @@ BERTopic is a topic modeling technique that leverages BERT embeddings and c-TF-I
 
 | Property  | Type |
 |------------|-----------|
-| title    | String    |
-| input   | String     |
-| result   | Array   |
+| input    | String    |
+| score   | Number     |
+| sentiment   | String   |
 
 ### Backend Route Table
 
 | Route Name | URL |	HTTP Verb | Description	
 | --- | --- | --- | --- | 
-| Index | /reports | GET | Loads a list of all reports 
-| Show | /report/:id | GET | Loads one report 
-| Create | /report | POST | Creates one report 
-| Update| /report/:id | PUT | Updates one report
-| Delete| /report/:id | DELETE | Deletes one report
+| Index | /results | GET | Loads a list of all reports 
+| Show | /result/:id | GET | Loads one report 
+| Create | /result | POST | Creates one report 
+| Update| /result/:id | PUT | Updates one report
+| Delete| /result/:id | DELETE | Deletes one report
 
 
 ### Frontend Route Table
 
 | Route	| Element |	Loader | Action	| Summary
 | --- | --- | --- | --- | --- |
-| / | Index | indexLoader |  | Loads a list of all reports
-| /report/:id | Show | showLoader |  | Loads one report
-| /create | Create | | createAction | Create one report
-| /update/:id | Update | | updateAction | Updates one report
-| /delete/:id | Delete | | deleteeAction | Deletes one report
+| / | Index | indexLoader |  | Loads a list of all results
+| /result/:id | Show | showLoader |  | Loads one result
+| /create | Create | | createAction | Create one result
+| /update/:id | Update | | updateAction | Updates one result
+| /delete/:id | Delete | | deleteeAction | Deletes one result
 
 ### Wireframe
 
