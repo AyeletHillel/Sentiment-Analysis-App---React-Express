@@ -10,9 +10,6 @@ const sentiment = new Sentiment()
 // Positive: List of positive words in input string that were found in AFINN list.
 // Negative: List of negative words in input string that were found in AFINN list.
 
-const result = sentiment.analyze('Cats are stupid.')
-console.dir(result)
-
 const getSentiment = (input) => {
     const result = sentiment.analyze(input)
     const score = result.score
