@@ -40,3 +40,13 @@ await fetch(URL + "/results/" + params.id, {
 })
     return redirect("/")
 }
+
+export const deleteResult = async ({params}) => {
+  await fetch(URL + "/results/" + params.id, {
+    method: "delete",
+    headers: {
+        "Content-Type":"application/json"
+    },
+  })
+  return redirect("/")
+}

@@ -3,7 +3,7 @@ import {
     createRoutesFromElements,
     Route,
   } from "react-router-dom"
-import { updateResult } from "./actions"
+import { deleteResult, updateResult } from "./actions"
   import App from "./App"
 import { resultLoader, resultsLoader } from "./loaders"
   import Index from "./pages/Index"
@@ -17,7 +17,7 @@ import { resultLoader, resultsLoader } from "./loaders"
         <Route path="" element={<Index />} loader={resultsLoader}/>
         <Route path=":id" element={<Show />} loader={resultLoader}/>
         <Route path="update/:id" action={updateResult}/>
-        <Route path="delete/:id"/>
+        <Route path="delete/:id" action={deleteResult}/>
       </Route>
     )
   )
