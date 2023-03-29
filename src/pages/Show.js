@@ -1,5 +1,15 @@
+import { useLoaderData } from "react-router-dom"
+
 function Show(props) {
-    return <h1>Show page</h1>
+    const result = useLoaderData()
+    console.log(result)
+    return (
+        <div>
+            <p>{result.input}</p>
+            <p>Sentiment Score: {result.score}</p>
+            <p>General Sentiment: {result.sentiment}</p>
+        </div>
+    )
 }
 
 export default Show

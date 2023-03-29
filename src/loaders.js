@@ -6,8 +6,8 @@ export const resultsLoader = async () => {
     return results
 }
 
-export const resultLoader = async (id) => {
-    const response = await fetch(URL + "/results/" + id)
+export const resultLoader = async ({params}) => {
+    const response = await fetch(URL + "/results/" + params.id )
     const result = await response.json()
     return result
 }

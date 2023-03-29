@@ -20,4 +20,5 @@ const getSentiment = (input) => {
     return [score, generalSentiment]
 }
 
+
 module.exports = getSentiment;
