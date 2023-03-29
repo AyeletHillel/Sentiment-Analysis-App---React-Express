@@ -2,6 +2,7 @@ import '../App.css';
 import getSentiment from '../getSentiment';
 import { Link, useLoaderData } from "react-router-dom"
 import { useState } from 'react';
+import { createResult } from '../actions';
 
 const Index = () => {
 
@@ -15,6 +16,7 @@ const Index = () => {
     const [score, sentiment] = getSentiment(event.target.input.value);
     setSentimentScore(score);
     setGeneralSentiment(sentiment);
+    createResult({ input: event.target.input.value, score, sentiment });
   };
 
   return (
