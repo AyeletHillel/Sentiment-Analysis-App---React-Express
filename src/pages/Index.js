@@ -1,22 +1,35 @@
-
 import '../App.css';
 import getSentiment from '../getSentiment';
 import { Link, useLoaderData } from "react-router-dom"
+import { useState } from 'react';
 
 const Index = () => {
 
-const results = useLoaderData()
+  const results = useLoaderData();
+
+  const [sentimentScore, setSentimentScore] = useState(null);
+  const [generalSentiment, setGeneralSentiment] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const [score, sentiment] = getSentiment(event.target.input.value);
+    setSentimentScore(score);
+    setGeneralSentiment(sentiment);
+  };
 
   return (
     <div className="App">
       <h2>Sentiment Analysis App</h2>
-      <p>Enter text for real time analysis</p>
-      {/* <textarea onChange={findSentiment} />
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter text for real time analysis:
+          <textarea name="input" />
+        </label>
+        <button type="submit">Analyze</button>
+      </form>
       <p>Sentiment Score: {sentimentScore}</p>
-      <p>General Sentiment: {generalSentiment}</p> */}
-
+      <p>General Sentiment: {generalSentiment}</p>
       <h2>History</h2>
-
       {results.map((result) => (
         <div key={result._id} className="result">
           <Link to={`/${result._id}`}>
@@ -29,6 +42,7 @@ const results = useLoaderData()
 };
 
 export default Index;
+
 
 
 // {
