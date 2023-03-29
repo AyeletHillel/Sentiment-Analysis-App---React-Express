@@ -5,3 +5,9 @@ export const resultsLoader = async () => {
     const results = await response.json()
     return results
 }
+
+export const resultLoader = async (id) => {
+    const response = await fetch(URL + "/results/" + id)
+    const result = await response.json()
+    return result
+}

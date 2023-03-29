@@ -4,7 +4,7 @@ import {
     Route,
   } from "react-router-dom"
   import App from "./App"
-import { resultsLoader } from "./loaders"
+import { resultLoader, resultsLoader } from "./loaders"
   import Index from "./pages/Index"
   import Show from "./pages/Show"
 
@@ -13,7 +13,7 @@ import { resultsLoader } from "./loaders"
     createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route path="" element={<Index />} loader={resultsLoader}/>
-        <Route path=":id" element={<Show />} />
+        <Route path=":id" element={<Show />} loader={resultLoader}/>
         <Route path="create" />
         <Route path="update/:id" />
         <Route path="delete/:id" />

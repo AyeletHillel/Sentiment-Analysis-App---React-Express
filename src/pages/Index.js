@@ -1,69 +1,40 @@
-import { Component } from 'react'
-import Sentiment from 'sentiment'
-import  '../App.css';
+
+import '../App.css';
+import getSentiment from '../getSentiment';
 import { Link, useLoaderData } from "react-router-dom"
 
-const sentiment = new Sentiment()
+const Index = () => {
 
-// Returned Objects
-// Score: Score calculated by adding the sentiment values of recognized words.
-// Comparative: Comparative score of the input string.
-// Calculation: An array of words that have a negative or positive valence with their respective AFINN score.
-// Token: All the tokens like words or emojis found in the input string.
-// Words: List of words from input string that were found in AFINN list.
-// Positive: List of positive words in input string that were found in AFINN list.
-// Negative: List of negative words in input string that were found in AFINN list.
+const results = useLoaderData()
 
-
-class Index extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      sentimentScore: null,
-      generalSentiment: null
-    }
-    this.findSentiment = this.findSentiment.bind(this)
-    
-  }
-
-  findSentiment(event) {
-    const result = sentiment.analyze(event.target.value)
-    this.setState({
-      sentimentScore: result.score
-    })
-
-    if (result.score < 0) {
-      this.setState({
-        generalSentiment: "Negative"
-      })
-    } else if (result.score > 0) {
-      this.setState({
-        generalSentiment: "Positive"
-      })
-    } else {
-      this.setState({
-        generalSentiment: "Nuetral"
-      })
-    }
-    console.log(result)
-  }
-
-  findTopics(event) {
-    
-  }
-
-
-  render() {
   return (
-    <div className='App'>
+    <div className="App">
       <h2>Sentiment Analysis App</h2>
       <p>Enter text for real time analysis</p>
-      <textarea onChange={this.findSentiment}/>
-      <p>Sentiment Score: {this.state.sentimentScore}</p>
-      <p>General Sentiment: {this.state.generalSentiment}</p>
+      {/* <textarea onChange={findSentiment} />
+      <p>Sentiment Score: {sentimentScore}</p>
+      <p>General Sentiment: {generalSentiment}</p> */}
+
+      <h2>History</h2>
+
+      {results.map((result) => (
+        <div key={result._id} className="result">
+          <Link to={`/${result._id}`}>
+            <h1>{result.input}</h1>
+          </Link>
+        </div>
+      ))}
     </div>
   );
-}}
+};
 
 export default Index;
+
+
+// {
+//   "_id": "6416446602b44a1b0ebe3567",
+//   "input": "Do you believe in magic?",
+//   "score": 3,
+//   "sentiment": "positive",
+//   "__v": 0
+// }
