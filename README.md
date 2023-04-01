@@ -47,5 +47,6 @@ Sentiment is a Node.js module that uses the AFINN-165 wordlist and Emoji Sentime
 
 ### Wireframe
 
-<img width="529" alt="Screen Shot 2023-03-04 at 5 47 39 PM" src="https://user-images.githubusercontent.com/91492759/222932083-2450a083-26b7-42cc-bf51-3d5ba38ec0a7.png">
+<img width="529" alt="Screen Shot 2023-03-04 at <img width="1155" alt="Screen Shot 2023-04-01 at 10 13 44 AM" src="https://user-images.githubusercontent.com/91492759/229294411-10698ca7-2fac-41db-94bf-e48276f1a068.png">
+5 47 39 PM" src="https://user-images.githubusercontent.com/91492759/222932083-2450a083-26b7-42cc-bf51-3d5ba38ec0a7.png">
 
