@@ -2,7 +2,7 @@
 ## Topic Modeling App
 
 ### Overview
-NLP Lab makes state-of-the-art sentiment analysis methods accessible to non-technical people. This full CRUD app allows users to upload a text document and receive a topic analysis report generated with the help of Sentiment.
+NLP Lab makes state-of-the-art sentiment analysis methods accessible to non-technical people. This full CRUD app allows users to insert text and receive a sentiment analysis report generated with the help of Sentiment.
 Sentiment is a Node.js module that uses the AFINN-165 wordlist and Emoji Sentiment Ranking to perform sentiment analysis on arbitrary blocks of input text. A user can create a new report, update a report by adjusting the input or re-running the model, and delete a report. 
 
 ### Tech Stack
