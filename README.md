@@ -1,5 +1,5 @@
 # NLP Lab
-## Topic Modeling App
+## Sentiment Analysis App
 
 ### Overview
 NLP Lab makes state-of-the-art sentiment analysis methods accessible to non-technical people. This full CRUD app allows users to insert text and receive a sentiment analysis report generated with the help of Sentiment.
